@@ -9,7 +9,7 @@ class MkDir(name:String) extends Command {
     override def apply(state: State ) : State = {
         val wd = state.wd
         if (wd.hasEntry(name)){
-            state.setMessage(s"Entry ${name} already existis!")
+            state.setMessage(s"Entry ${name} already exists!")
         } else if (checkIllegal(name)) {
             //TODO
             //mkdir -p something/something_else

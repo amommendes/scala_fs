@@ -8,7 +8,7 @@ class Directory (override val parentPath: String, override val name:String, val 
       findEntry(name) != null
 
     def getAllFolderInPath : List[String] =
-      path.substring(1).split(Directory.SEPARATOR).toList
+      path.substring(1).split(Directory.SEPARATOR).toList.filter(entry => !entry.isEmpty)
     // /a/b/c/d => List["a","b","c","d"]
     def findDescendant (path: List[String]): Directory =
       if(path.isEmpty) this
@@ -28,6 +28,7 @@ class Directory (override val parentPath: String, override val name:String, val 
     def replaceEntry(entryName:String,  newEntry: DirEntry): Directory =
       new Directory(parentPath,name, contents.filter(entry => !entry.name.equals(entryName)) :+ newEntry)
     def asDirectory : Directory = this
+    def getType: String = "Directory"
 }
 
 // Companion Object
