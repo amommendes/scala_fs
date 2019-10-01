@@ -10,15 +10,14 @@ trait Command {
 
 }
 
-<<<<<<< Updated upstream
-object Command{
-  def from (input: String):Command =
-    new UnknownCommand
-=======
+
 object  Command {
   val MKDIR = "mkdir"
   val LS = "ls"
   val PWD = "pwd"
+object  Command {
+  val MKDIR = "mkdir"
+  val LS = "ls"
   def emptyCommand:Command = (state: State) => state
 
   def incompleteCommand(name:String) : Command = new Command {
@@ -37,12 +36,10 @@ object  Command {
 
     } else if(LS.equals(tokens(0))) {
         new Ls
-
     } else if(PWD.equals(tokens(0))) {
       new Pwd
     }else {
         new UnknownCommand
     }
   }
->>>>>>> Stashed changes
 }
