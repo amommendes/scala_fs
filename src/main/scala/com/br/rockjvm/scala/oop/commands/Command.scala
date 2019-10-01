@@ -15,9 +15,7 @@ object  Command {
   val MKDIR = "mkdir"
   val LS = "ls"
   val PWD = "pwd"
-object  Command {
-  val MKDIR = "mkdir"
-  val LS = "ls"
+
   def emptyCommand:Command = (state: State) => state
 
   def incompleteCommand(name:String) : Command = new Command {
